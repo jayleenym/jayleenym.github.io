@@ -10,15 +10,7 @@
   @media (max-width: $break-small) {
     height: 250px !important;
   }
-}
-
-// .about-banner {
-//   @media (max-width: $break-small) {
-//     height: 200px !important;
-//   }
-// }
-
-.main-banner, .recruit-banner, .about-banner {
+  
   left: 0;
   right: 0;
   height: 400px;
