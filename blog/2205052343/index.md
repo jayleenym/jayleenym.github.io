@@ -11,25 +11,28 @@ hash-tag: [프로그래머스, 코딩테스트]
 ---
 문제 링크 - https://programmers.co.kr/learn/courses/30/lessons/92334
 
-너무 복잡하게 풀이한 것 같다..ㅠ 내일 일어나서 다시 해봐야지!
+---
 
+### ✍🏻 Comment
+신고한 사람과 신고 당한 사람이 같은 경우는 한 번 신고한 것으로 처리하기 때문에 report를 중복제거해주고, report를 각각 split한 결과에 맞게 카운트를 해주는 단순한 문제였다. 어제는 왜 신고당한 유저 id를 다 살려놓으면서 풀이했는지 모르겠다..
+
+### ⌨️ Code
 ```python
-from collections import Counter
-
 def solution(id_list, report, k):
-    report_dict = {id_list[i] : [] for i in range(len(id_list))}
+    report = list(set(report)) # 신고 중복제거
+    reported_ct = {x : 0 for x in id_list} # 유저별 신고 당한 횟수
+    ans_dict = {x : 0 for x in id_list} # 유저별 받는 처리 결과 메일 수
+    
+    for r in report: # 유저별 신고 당한 횟수 count
+        reported_ct[r.split()[1]] += 1
+    
     for r in report:
         a, b = r.split()
-        report_dict[a].append(b)
-        report_dict[a] = list(set(report_dict[a]))
-    for_k = []
-    for i in report_dict.keys(): for_k += report_dict[i]
-    for_k = dict(Counter(for_k))
-    
-    reported = [a for a, b in for_k.items() if b>= k]
-    for a, b in report_dict.items():
-        for i in range(len(b)):
-            if b[i] in reported: b[i] = 1
-    return [i.count(1) for i in report_dict.values()]
+        if reported_ct[b] >= k: # 신고당한 횟수가 k보다 크면
+            ans_dict[a] += 1 # 유저별 수신 메일 수 +1
+        
+    return list(ans_dict.values())
+
+
 
 ```
