@@ -1,0 +1,26 @@
+---
+layout: post
+type: blog
+date: 2022-05-06 22:01
+category: 프로그래머스
+title: Lv. 1 로또의 최고 순위와 최저 순위
+subtitle: 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+post-header: true
+header-img: img/programmers.png
+hash-tag: [프로그래머스, 코딩테스트]
+---
+문제 링크 - https://programmers.co.kr/learn/courses/30/lessons/77484
+
+---
+
+### ✍🏻 Comment
+일치하는 번호는 제외하고, 알 수 없는 0이 모두 당첨번호이면 최고 순위, 모두 꽝이면 최저 순위이기 때문에 0의 개수로 해결!
+
+### ⌨️ Code
+```python
+def solution(lottos, win_nums):
+    rank = {6:1, 5:2, 4:3, 3:4, 2:5, 1:6, 0:6} # 로또 순위 dictionary
+    same = len(win_nums) - len(set(win_nums) - set(lottos)) # 당첨 번호와 같은 번호의 개수
+    
+    return [rank[same + lottos.count(0)], rank[same]]
+```
