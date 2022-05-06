@@ -4,7 +4,7 @@ type: blog
 date: 2022-05-06 22:01
 category: 프로그래머스
 title: Lv. 1 로또의 최고 순위와 최저 순위
-subtitle: 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+subtitle: 2021 Dev-Matching 웹 백엔드 개발자(상반기)
 post-header: true
 header-img: img/programmers.png
 hash-tag: [프로그래머스, 코딩테스트]
