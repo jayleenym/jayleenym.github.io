@@ -32,7 +32,4 @@ def solution(id_list, report, k):
             ans_dict[a] += 1 # 유저별 수신 메일 수 +1
         
     return list(ans_dict.values())
-
-
-
 ```
