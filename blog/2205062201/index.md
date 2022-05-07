@@ -9,7 +9,7 @@ post-header: true
 header-img: img/programmers.png
 hash-tag: [프로그래머스, 코딩테스트]
 ---
-문제 링크 - https://programmers.co.kr/learn/courses/30/lessons/77484
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/77484)
 
 ---
 
