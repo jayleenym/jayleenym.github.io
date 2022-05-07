@@ -1,7 +1,7 @@
 ---
 layout: post
 type: blog
-date: 2022-05-06 22:01
+date: 2022-05-07 17:08
 category: 프로그래머스
 title: Lv. 1 신규 아이디 추천
 subtitle: 2021 KAKAO BLIND RECRUITMENT
