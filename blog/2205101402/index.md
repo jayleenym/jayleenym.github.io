@@ -1,0 +1,160 @@
+---
+layout: post
+type: blog
+date: 2022-05-10 14:02
+category: python
+title: Python 기초
+subtitle: 내가 보려고 정리하는 파이썬 문법
+post-header: true
+header-img: img/python.png
+hash-tag: [파이썬, python]
+---
+
+# 연산자 Operator
+|비트 연산자||
+|---|---|
+| `~` |비트 부정|
+| <code>&#124;</code> |비트 합|
+|`&`| 비트 곱|
+|`^`|배타적 비트 합|
+|`>> <<`|비트 시프트|
+
+- In-place 연산 `a += 1` : 기존 객체 `a` 수정 *시도*, 불가능시 새로운 객체 생성
+- Out-place 연산 `a = a + 1` : 명시적으로 새로운 객체 생성
+
+|비교 연산자||
+|---|---|
+|`x is y`|`x`와 `y`의 **주소**가 같다 ( `id(x) == id(y)` )|
+|`x == y`|`x`와 `y`의 값이 같다|
+
+|논리 연산자||
+|---|---|
+|`not`|부정|
+|`or`|논리합|
+|`and`|논리곱|
+
+# 함수 Function
+- `global a` : 최상위 변수
+- `nonlocal a` : 직전 상위 변수
+
+## Closure
+- 
+
+
+
+# 인자 Parameter
+- packing : 가변인자 `*args`, 키워드 가변인자 `**kwargs`
+- unpacking : 리스트&튜플 `*[1, 2, 3]`, 딕셔너리 `**{"v1": 10, "v2":20}`
+
+
+# 내장함수 구현
+```python
+def my_max(*args):
+    if len(args) == 1:
+        args = args[0]
+    
+    max_value = args[0]
+    for element in args[1:]:
+        if element > max_value:
+            max_value = element
+    return max_value
+
+
+test = [7, 4, 2, 8]
+assert max(test) == my_max(test)
+print("통과")
+
+# -----
+def my_filter(function, iterable):
+    for element in iterable:
+        if function(element):
+            yield element # list로 프린트
+
+
+def my_map(function, iterable):
+    return [function(element) for element in iterable]
+
+
+def my_zip(*iterables):
+    # iter_len = len(iterables[0]) # 길이 같다고 가정
+    iter_len = min([len(iterable) for iterable in iterables])
+    i = 0
+    while i < iter_len:
+        yield tuple([iterable[i] for iterable in iterables])
+```
+
+## 알고리즘 구현
+### 정렬 알고리즘 - 삽입정렬, 선택정렬, 버블정렬
+```python
+
+# 버블 정렬
+def my_sorted(iterable, key = None, reverse = False):
+    if key is None:
+        key = lambda x: x
+    
+    iterable = list(iterable) # 복사해서 건드리는게 좋음
+    for i in range(1, len(iterable)):
+        for j in range(len(iterable) - i):
+            key_a, key_b = key(iterable[j]), key(iterable[j+1])
+
+            if (not reverse and key_a > key_b) or (reverse and key_a < key_b):
+                iterable[j], iterable[j+1] = iterable[j+1], iterable[j] # tmp 변수 필요 없음
+                
+    return iterable
+```
+### 순열&조합
+```python
+# 피보나치 수열
+def fibonacci(number):
+    if number == 1:
+        return [1]
+    elif number == 2:
+        return [1, 1]
+    # 재귀
+    prev = fibonacci(number - 1)
+    return prev + [prev[-2] + prev[-1]]
+
+    # for
+    seq = [1, 1]
+    for i in range(2, number):
+        seq.append(seq[-2] + seq[-1])
+    return seq
+
+
+# 순열
+from itertools import permutations
+
+def my_permutation(seq, number):
+    if number == 1:
+        return [(v, ) for v in seq]
+    
+    perms = []
+    for i in range(len(seq)):
+        sub_seq = seq[:i] + seq[i+1:]
+        sub_perms = my_permutation(sub_seq, number - 1)
+        for sub_perm in sub_perms:
+            perm.append((seq[i], sub_perm))
+
+    return perms
+
+test = [1, 2, 3, 4]
+assert set(permutations(test, 2)) == set(my_permutation(test, 2))
+print("통과")
+
+# 조합
+from itertools import combinations
+
+def my_combination(seq, number):
+    if number == 1:
+        return [(v, ) for v in seq]
+    
+    perms = []
+    for i in range(len(seq)):
+        sub_seq = seq[i+1:] # 이미 다 뽑은 애는 아웃!
+        sub_perms = my_permutation(sub_seq, number - 1)
+        for sub_perm in sub_perms:
+            perm.append((seq[i], sub_perm))
+
+    return perms
+        
+```
