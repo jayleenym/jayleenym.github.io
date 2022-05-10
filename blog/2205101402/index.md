@@ -11,10 +11,11 @@ hash-tag: [파이썬, python]
 ---
 
 # 연산자 Operator
-|비트 연산자||
+
+|비트 연산자| |
 |---|---|
-| `~` |비트 부정|
-| <code>&#124;</code> |비트 합|
+|`~`|비트 부정|
+|<code>&#124;</code>|비트 합|
 |`&`| 비트 곱|
 |`^`|배타적 비트 합|
 |`>> <<`|비트 시프트|
@@ -22,12 +23,12 @@ hash-tag: [파이썬, python]
 - In-place 연산 `a += 1` : 기존 객체 `a` 수정 *시도*, 불가능시 새로운 객체 생성
 - Out-place 연산 `a = a + 1` : 명시적으로 새로운 객체 생성
 
-|비교 연산자||
+|비교 연산자| |
 |---|---|
 |`x is y`|`x`와 `y`의 **주소**가 같다 ( `id(x) == id(y)` )|
 |`x == y`|`x`와 `y`의 값이 같다|
 
-|논리 연산자||
+|논리 연산자| |
 |---|---|
 |`not`|부정|
 |`or`|논리합|
@@ -59,7 +60,7 @@ def my_max(*args):
             max_value = element
     return max_value
 
-
+# test
 test = [7, 4, 2, 8]
 assert max(test) == my_max(test)
 print("통과")
@@ -86,7 +87,6 @@ def my_zip(*iterables):
 ## 알고리즘 구현
 ### 정렬 알고리즘 - 삽입정렬, 선택정렬, 버블정렬
 ```python
-
 # 버블 정렬
 def my_sorted(iterable, key = None, reverse = False):
     if key is None:
@@ -141,6 +141,7 @@ test = [1, 2, 3, 4]
 assert set(permutations(test, 2)) == set(my_permutation(test, 2))
 print("통과")
 
+
 # 조합
 from itertools import combinations
 
@@ -156,5 +157,4 @@ def my_combination(seq, number):
             perm.append((seq[i], sub_perm))
 
     return perms
-        
 ```
