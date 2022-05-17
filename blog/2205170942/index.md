@@ -1,0 +1,34 @@
+---
+layout: post
+type: blog
+date: 2022-05-17 09:42
+category: python
+title: Markdown 작성법
+subtitle: 내가 보려고 정리하는 md 문법
+post-header: true
+header-img: img/markdown.jpeg
+hash-tag: [markdown, md, LaTeX]
+---
+<!-- $Error = (E[f^(x)] - f(x))^2 + E[f^(x) - E[/overrightf^(x)]]^2 + e$
+
+bias: 예측된 값의 평균이 정답과 얼마나 차이가 있느냐
+variance: 얼마나 큰 폭으로 변화 해? -->
+
+## 🔣 수식 표현
+### 수식의 정렬
+
+1. 왼쪽정렬(기본, $)
+> $x+y=1$  
+> $x$는 $y$와의 합이 $1$이다.  
+
+> x+y=1  
+> x는 y와의 합이 1이다.  
+
+2. 중앙정렬 ($$)
+> $$x+y=1$$
+
+> $$ f(x)=ax^2+bx+c\\ g(x)=Ax^4$$
+
+3. 특정 문자를 기준으로 정렬   
+    `aligned`로 감싸기, `&`로 기준 표시
+> $$\begin{aligned}f(x)&=ax^2+bx+c\\g(x)&=Ax^4\end{aligned}$$
