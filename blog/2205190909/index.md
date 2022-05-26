@@ -24,7 +24,7 @@ $$Feature = Attribute = Variable = Dimension$$
 - 특정한 **목적**을 가지고, 전처리하는 과정으로 이루어짐
 
 ### Forward Selection
-<img src=./img/img2.png>
+![](./img/img2.png)
 
 - 총 100개 feature 후보가 있다고 하면, 1개씩 feature로 학습
 - 변수가 늘어날수록 학습 데이터의 성능은 점점 좋아짐 (loss는 점점 떨어짐)
@@ -33,13 +33,13 @@ $$Feature = Attribute = Variable = Dimension$$
 - validation data의 성능을 가지고, 가장 좋은 성능을 가지는 feature를 먼저 선정.
 
 ### Backward Elimination
-<img src=./img/img3.png>
+![](./img/img3.png)
 
 - foward와 반대방향
 - 100개에서 하나씩 제외하며 validation 성능을 보는 것
 
 ### Correlation Coefficient
-<img src=./img/img4.png>
+![](./img/img4.png)
 
 - 좀 더 명확한 패턴을 가지는 variable를 찾는 것이 target에 더 좋은 feature다!
 - 상관성이 있느냐, 없느냐를 측정해서 feature 선정
@@ -59,7 +59,7 @@ $$Feature = Attribute = Variable = Dimension$$
 *A. **데이터가 최대한 많은 변화 폭을 갖는 선으로 정하자!***
 - 분산 값이 큰 쪽으로 계산을 하게 됨  
 (1번이 2번보다 좋다)
-<img src=./img/img5.png>
+![](./img/img5.png)
 - 왜? original space에서의 거리를 가장 잘 반영할 수 있는 것이기 때문에!
 
 #### word2vec
@@ -76,14 +76,16 @@ $$Feature = Attribute = Variable = Dimension$$
 
 
 ### Multi-Dimensional Scaling (MDS)
-<img src = ./img/img6.png>
-<img src = ./img/img7.png>
+![](./img/img6.png)
+![](./img/img7.png)
+
 PCA와 비슷. 본래 거리 정도를 최대한 유지하자!
 
 - PCA: 축을 통해 좌표값을 얻어냈음
 - MDS: 각각의 low-dim distance를 편미분해서 최소값을 찾음. 각 좌표를 독립적으로 gradient decent해서 미세 조정.
 
-<img src = ./img/img8.png width="60%" align="center">
+![](./img/img8.png)
+<!-- <img src = ./img/img8.png width="60%" align="center"> -->
 
 ex1. 8이어야하는데 계산해 보니 5더라 → 더 멀어지는 방향으로 x1, x2, x3를 update.   
 ex2. 1이어야 하는데 계산해보니 2더라 → 더 가까워지는 방향으로 점의 좌표값을 조정
@@ -92,7 +94,7 @@ ex2. 1이어야 하는데 계산해보니 2더라 → 더 가까워지는 방향
 
 ### t-SNE [끝판왕]
 오래걸림. 모든 pari-wise distance를 **계산함** => Ground-truth distance 정보를 만들고 시작.
-<img src = ./img/img9.png>
+![](./img/img9.png)
 - DH와 DL의 차이가 최소화가 될 수 있도록 계속 업데이트 (iterative update)
 - 집단 간 공간적인 여유도 줌. 명확히 구분되는 패턴이 보임
 - PCA는 identity ~ 로 계산하면 바로 나옴
