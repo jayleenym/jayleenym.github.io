@@ -2,12 +2,12 @@
 layout: post
 type: blog
 date: 2022-05-31 09:12
-category: 딥러닝
+category: Deep Learning
 title: 트랜스포머 Transformer
 subtitle: KAIST AI대학원 서민준 교수님
 post-header: true
-header-img: img/GSAI.png
-hash-tag: [pytorch, transformer, 트랜스포머, 딥러닝, NLP]
+header-img: img/transformer-model-architecture.png
+hash-tag: [transformer, 트랜스포머, NLP]
 ---
 
 ## Attention
