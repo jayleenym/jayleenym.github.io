@@ -1,7 +1,7 @@
 ---
 layout: post
 type: blog
-date: 2022-05-31 09:12
+date: 2022-06-02 17:36
 category: Deep Learning
 title: Self-supervised Pre-training 자연어 처리 모델
 subtitle: KAIST AI대학원 서민준 교수님
