@@ -2,7 +2,7 @@
 layout: post
 type: blog
 date: 2022-05-19 09:09
-category: 머신러닝 기초
+category: Machine Learning
 title: 차원축소 Dimension Reduction
 subtitle: KAIST AI대학원 주재걸 교수님
 post-header: true
