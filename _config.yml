@@ -24,32 +24,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 제이린의 개발괴발
-email: jayleenym@gmail.com
-author: jayleenym
-
-# Copyright setting
-# You can use any html code, currently below placeholders are available:
-# * current year: {currentYear}
-# * author: {author} (Value is the same as site.author)
-# * copyright: (c) - ©
-# * copyleft: (cleft)
-# * sound recording copyright: (p) - ℗
-#
-# For example:
-#   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
-#   "Copyright © 2017-2021 Foobar"
-#
-copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
-
+title: Your awesome title
+email: your-email@domain.com
+author: GitHub User
+copyright: Copyright © 1970-2010
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jayleenym.github.io" # the base hostname & protocol for your site, e.g. https://example.com
-favicon: "favicon.ico" # the favicon for your site
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+favicon: "" # the favicon for your site
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -61,9 +47,6 @@ yat:
 
 # If you don't want transparent header, you can set false
 # header_transparent: true
-
-# If you want to change the content width, you can set to another value
-# content_width: "920px"
 
 # Google analytics
 # google_analytics: [Tracking ID]
@@ -146,35 +129,35 @@ yat:
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-header_pages:
-  - index.html
-  - archives.html
-  - categories.html
-  - tags.html
-  - about.md
+# header_pages:
+#   - index.html
+#   - archives.html
+#   - categories.html
+#   - tags.html
+#   - about.md
 
 # Page default value
-defaults:
-  home:
-    heading: "제이린의 기술블로그입니다."
-    subheading: "마음에 드는 스킨을 찾는 중입니다.."
-    banner: "/assets/images/banners/home.jpeg"
+# defaults:
+#   home:
+#     heading: "Your awesome heading"
+#     subheading: "Your awesome subheading"
+#     banner: "Your image url"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
 # config it by the front matter for one specific post
-banner:
-  video: null             # Video banner source
-  loop: true              # Video loop
-  volume: 0               # Video volume (100% is 1.0)
-  start_at: 0             # Video start time
-  image: null             # Image banner source
-  opacity: 1.0            # Banner opacity (100% is 1.0)
-  background: "rgba(0, 0, 0, 0.8)"  # Banner background (Could be a image)
-  height: "640px"         # Banner default height
-  min_height: null        # Banner minimum height
-  heading_style: null     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
-  subheading_style: null  # Custom subheading style (e.g. color: gold)
+# banner:
+#   video: null             # Video banner source
+#   loop: true              # Video loop
+#   volume: 0               # Video volume (100% is 1.0)
+#   start_at: 0             # Video start time
+#   image: null             # Image banner source
+#   opacity: 1.0            # Banner opacity (100% is 1.0)
+#   background: "rgba(0, 0, 0, 0.8)"  # Banner background (Could be a image)
+#   height: "640px"         # Banner default height
+#   min_height: null        # Banner minium height
+#   heading_style: null     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
+#   subheading_style: null  # Custom subheading style (e.g. color: gold)
 
 # Excerpt size setting
 # excerpt_size: 350
@@ -193,17 +176,6 @@ banner:
 #   client_id: "Your client ID"
 #   client_secret: "Your client secret"
 #   redirect_uri: "Your redirect url"   # If you use a custom domain name
-
-# Utterances comments
-# See https://utteranc.es/
-# set follow_site_theme true to make utterances' theme follow the site's
-
-# utterances:
-#   repo: "owner/repo"
-#   issue_term: "title"
-#   label: "utterances comment"
-#   theme: "github-light"
-#   follow_site_theme: true
 
 # Build settings
 # highlighter: none
