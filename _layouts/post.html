@@ -1,58 +1,81 @@
 ---
-layout: main
+layout: framework
+banner:
+banner_html: post-header.html
+hidden: []
+sidebar:
+  - article-menu
 ---
 
 <div class="post">
-    <div class="post-info">
-        <div class="post-type-tag">
-            {% if page.draft == true %}
-            <div class="catalogue-tag">
-                Coming Soon
-            </div>
-            {% endif %}
-            <div class="post-type">
-                {{ page.category }}
-            </div>
-        </div>
-        <h1 class="post-title">
-            {{ page.title }}
-        </h1>
-        <h2 class="post-subtitle">
-            {{ page.subtitle }}
-        </h2>
-        <h2 class="post-date">
-            {{ page.date }}
-        </h2>
+  <section>
+
+    {%- assign name = 'banner' -%}
+    {%- include functions.html func='get_value' -%}
+    {%- assign banner = return -%}
+
+    {%- assign name = 'hidden' -%}
+    {%- include functions.html func='get_value' -%}
+    {%- assign hidden = return -%}
+
+    {%- assign result = hidden | where_exp: "item", "item == 'header'" -%}
+    {%- if banner == nil and result.size == 0 -%}
+    {%- include views/post-header.html -%}
+    {%- endif -%}
+
+    {%- include views/article.html -%}
+
+    {%- assign result = hidden | where_exp: "item", "item == 'navigator'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-nav">
+      {%- if page.previous -%}
+        <a class="previous" href="{{ page.previous.url | relative_url }}" title="{{
+          page.previous.title | escape }}">{{ page.previous.title | escape | truncatewords: 6 }}</a>
+      {%- else -%}
+      <span></span>
+      {%- endif -%}
+
+      {%- if page.next -%}
+        <a class="next" href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}">{{ page.next.title | escape | truncatewords: 6 }}</a>
+      {%- else -%}
+      <span></span>
+      {%- endif -%}
     </div>
+    {%- endif -%}
 
-    <!--draft 일 때-->
-
-    {% if page.draft == true %}
-        <div class="catalogue-draft-message">
-            <h1>
-                &#x1F64B; Coming Soon!
-            </h1>
-            현재 열심히 글을 쓰고 있어요. 조금만 기다려주세요!
-        </div>
-    {% endif %}
-
-    {{ content }}
-
-    {% if page.hash-tag %}
-    <div class="post-tags">
-        {% include post-hashtag.html %}
+    {%- assign result = hidden | where_exp: "item", "item == 'related_posts'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        {% assign posts = site[page.collection] | sample:4 %}
+        {%- for post in posts -%}
+        <li><a class="post-link" href="{{post.url | relative_url}}" title="{{ page.next.title | escape }}">{{ post.title | escape | truncatewords: 12 }}</a></li>
+        {%- endfor -%}
+      </ul>
     </div>
-    {% endif %}
+    {%- endif -%}
 
-    {% include post-footer.html %}
+    {%- assign result = hidden | where_exp: "item", "item == 'comments'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-comments">
+      {%- if page.comments != false -%}
 
-    {% if page.layout == 'post' %}
-        <script src="https://utteranc.es/client.js"
-                repo="oy-alldev/tech-blog-comment"
-                issue-term="pathname"
-                theme="preferred-color-scheme"
-                crossorigin="anonymous"
-                async>
-        </script>
-    {% endif %}
+      {%- if site.disqus.shortname -%}
+      {%- include extensions/comments/disqus.html -%}
+      {%- endif -%}
+
+      {%- if site.gitment.username -%}
+      {%- include extensions/comments/gitment.html -%}
+      {%- endif -%}
+
+      {%- if site.utterances.repo -%}
+      {%- include extensions/comments/utterances.html -%}
+      {%- endif -%}
+
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+
+  </section>
 </div>

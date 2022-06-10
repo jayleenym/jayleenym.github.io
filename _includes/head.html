@@ -1,60 +1,18 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- HTML Meta Tags -->
-  <title>{% if page.home == true %}{{ site.title }}{% elsif page.main == true %}{{ page.title }} | {{ site.title }}{% else %}{{ page.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.home == true %}{{ site.description }}{% else %}{{ site.title }}{% endif %}">
-
-  <!-- Naver Search Engine Tag -->
-  <!-- <meta name="naver-site-verification" content="55cc2fd19a3823b9a891312ff941dff197dc77be" /> -->
-  
-  <!-- Google / Search Engine Tags -->
-  <!-- <meta itemprop="name" content="{% if page.home == true %}{{ site.title }}{% elsif page.main == true %}{{ page.title }} | {{ site.title }}{% else %}{{ page.title }}{% endif %}">
-  <meta itemprop="description" content="{% if page.home == true %}{{ site.description }}{% else %}{{ site:title }}{% endif %}">
-  <meta itemprop="image" content="{% if page.post-header == true or page.project-header == true %}{{ site.url }}{{ page.url }}{{ page.header-img }}{% elsif page.recruit == true %}{{ site.url }}{{'/meta/meta_recruit_image.png'}}{% else %}{{ site.url }}{{'/meta/meta_image.png'}}{% endif %}"> -->
-
-  <!-- Facebook Meta Tags -->
-  <!-- <meta property="og:url" content="{{ site.baseurl }}"> -->
-  <!-- <meta property="og:type" content="{% if page.post-header == true or page.project-header == true %}article{% else %}website{% endif %}">
-  <meta property="og:title" content="{% if page.home == true %}{{ site.title }}{% elsif page.main == true %}{{ page.title }} | {{ site.title }}{% else %}{{ page.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.home == true %}{{ site.description }}{% else %}{{ site:title }}{% endif %}">
-  <meta property="og:image" content="{% if page.post-header == true or page.project-header == true %}{{ site.url }}{{ page.url }}{{ page.header-img }}{% elsif page.recruit == true %}{{ site.url }}{{'/meta/meta_recruit_image.png'}}{% else %}{{ site.url }}{{'/meta/meta_image.png'}}{% endif %}">
-  <meta property="og:image:width" content="1600">
-  <meta property="og:image:height" content="900"> -->
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" > 
-  <link rel="shortcut icon" href="/meta/favicon.ico" type="image/x-icon" >
-  
-
-  <!-- Twitter Meta Tags -->
-  <!-- <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.home == true %}{{ site.title }}{% elsif page.main == true %}{{ page.title }} | {{ site.title }}{% else %}{{ page.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.home == true %}{{ site.description }}{% else %}{{ site:title }}{% endif %}">
-  <meta name="twitter:image" content="{% if page.post-header == true or page.project-header == true %}{{ site.url }}{{ page.url }}{{ page.header-img }}{% elsif page.recruit == true %}{{ site.url }}{{'/meta/meta_recruit_image.png'}}{% else %}{{ site.url }}{{'/meta/meta_image.png'}}{% endif %}">
- -->
-  <!-- Script -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFFJ0VHVD4"></script>
-
- <!--bootstrap-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-
-
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TFFJ0VHVD4');
-
-  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  {%- seo -%}
+  <link rel="shortcut icon" href="{{ site.favicon }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+  {%- include extensions/google-analytics.html -%}
+  {%- endif -%}
+  {%- include extensions/code-highlight.html -%}
+  {%- include custom-head.html -%}
 </head>
-
-
