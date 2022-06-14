@@ -1,4 +1,4 @@
 home:
-  heading: "Your awesome heading"
-  subheading: "Your awesome subheading"
-  banner: "Your image url"
+  heading: "제이린의 개발괴발"
+    subheading: "안녕하세요, 기억력이 안좋아서 이곳에 기록하고 있습니다."
+    banner: "../assets/images/banners/home.jpeg"
